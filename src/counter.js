@@ -1,12 +1,16 @@
 import {useState} from "react";
 function Counter(props) {
-    const {delta} = props
+    const {delta, maxNum} = props
     const [count, setCount] = useState(1);
     function incr(){
         setCount(
             function(oldCount){
+                if (oldCount + props.delta <= props.maxNum){
                 return oldCount + delta
+                }
+                return 1
             }
+            
         )
         console.log(count)
     }
